@@ -1,4 +1,5 @@
 // common and useful config
+const api = require('./ankrAPI.js')
 const rp = require('request-promise')
 const chai = require('chai')
 const chaiAsPromised = require("chai-as-promised");
@@ -20,7 +21,6 @@ setAccount = function (email, password) {
     console.log('Email: ' + testEmail)
     // console.log('Password: ' + userpassword)
 }
-
 
 const logOn = false
 const log = {
@@ -141,19 +141,38 @@ global.testEmail = testEmail
 global.testPassword = testPassword
 global.toTS = toTS
 
-// At first, input the domain you want to use:
+// Ankr's APIs provided
 
-// Then, set your account:
+// user
 
-appList = async function () {
-    await authenticateWithTestAcct()
-    const appList = await reqA('GET', '/app/list')
-    console.log(appList)
-}
+//app
+applist = api.appList
+appcreate = api.appCreate
+appcancel = api.appCancel
+apppurge = api.appPurge
+appupdate = api.appUpdate
+
+//namespace
+
+
 
 module.exports = {
     // config
+    setDomain,
     setAccount,
+    
+    // user
 
-    appList
+    // app
+    applist,
+    appcreate,
+    appcancel,
+    apppurge,
+    appupdate,
+    
+
+
+    // namespace
+    
+    
 }
