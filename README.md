@@ -25,8 +25,31 @@ npm install ankr-sdk-nodejs
 
 ## Ankr's APIs provided
 ### User
-1. 
-2. 
+1. `changeemail(email_u)`
+Change email address.
+
+2. `forgotpassword(email)`
+Send a reset password email to your email address.
+
+3. `changepassword(old_p, new_p)`
+Change the password of your account.
+
+### Chart
+1. `chartlist(repo)`
+List charts, choose the chart repo (default = 'stable') you want to list.
+
+2. `chartdetail(repo, name, ver)`
+Show details of a specific chart.
+
+3. `chartdownload(repo, name, ver)`
+Download a specific chart.
+
+4. `chartdelete(name, ver)`
+Delete a chart.(Only a chart with repo = ‘user’ can be deleted, users cannot delete a chart with repo = 'stable' )
+
+5. `chartupload(repo, name, ver, file)`
+Upload a chart.
+
 
 ### Namespace
 1. `namespacelist( )`
@@ -40,6 +63,20 @@ delete a namespace by ns_id.
 
 4. `namespaceupdate(ns_id, cpu_u, mem_u, storage_u)`
 update a namespace by ns_id.
+
+### DataCenter
+1. `dclist( )`
+List all data centers.
+
+2. `dcnetworkinfo( )`
+Get the networkinfo of the data center.
+
+3. `mydc( )`
+Get your data center infomation.
+
+4. `dcreset( )`
+Reset the data center.
+
 
 ### App
 1. `applist( )`
@@ -60,7 +97,3 @@ Update an application by app_id.
 6. `appdetail(app_id)`
 Show details of an application by app_id. 
 
-
-### User
-1. 
-2. 

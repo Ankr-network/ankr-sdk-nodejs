@@ -94,7 +94,7 @@ const authenticate =
         })
   }
 
-const authenticateWithTestAcct = () => authenticate({
+const authenticateUserAcct = () => authenticate({
   email: testEmail,
   password: testPassword
 })
@@ -134,7 +134,7 @@ const toTS = (str) => (new Date(str)).getTime()
 global.chai = chai
 global.expect = expect
 global.authenticate = authenticate
-global.authenticateWithTestAcct = authenticateWithTestAcct
+global.authenticateUserAcct = authenticateUserAcct
 global.reqA = reqA
 global.log = log
 global.testEmail = testEmail
@@ -144,6 +144,22 @@ global.toTS = toTS
 // Ankr's APIs provided
 
 // user
+changeemail = api.changeEmail
+forgotpassword = api.forgotPassword
+changepassword = api.changePassword
+
+// dc
+dclist = api.dcList
+dcnetworkinfo = api.dcNetworkInfo
+mydc = api.myDc
+dcreset = api.dcReset
+
+// chart
+chartlist = api.chartList
+chartdetail = api.chartDetail
+chartdownload = api.chartDownload
+chartdelete = api.chartDelete
+chartupload = api.chartUpload
 
 //namespace
 namespacelist = api.namespaceList
@@ -158,7 +174,10 @@ appcancel = api.appCancel
 apppurge = api.appPurge
 appupdate = api.appUpdate
 appdetail = api.appDetail
-namespacedelete = api.namespacedelete
+
+
+
+
 
 module.exports = {
     // config
@@ -166,6 +185,19 @@ module.exports = {
     setAccount,
     
     // user
+    changeemail,
+    forgotpassword,
+    changepassword,
+
+    // chart
+    chartlist,
+    chartdetail,
+    chartdownload,
+    chartdelete,
+    chartupload,
+    
+
+
 
     // namespace
     namespacelist,
@@ -173,7 +205,14 @@ module.exports = {
     namespacedelete,
     namespaceupdate,
 
-    
+    // dc
+    dclist,
+    dcnetworkinfo,
+    mydc,
+    dcreset,
+
+
+
     // app
     applist,
     appcreate,
@@ -182,10 +221,4 @@ module.exports = {
     appupdate,
     appdetail,
 
-
-
-
-    
-    
-    
 }
