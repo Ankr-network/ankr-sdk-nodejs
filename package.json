@@ -1,6 +1,6 @@
 {
   "name": "ankr-sdk-nodejs",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Ankr-network/ankr-sdk-nodejs/issues"
   },
-  "homepage": "https://github.com/Ankr-network/ankr-sdk-nodejs#readme"
+  "homepage": "https://github.com/Ankr-network/ankr-sdk-nodejs#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
 }
