@@ -4,11 +4,12 @@ const chai = require('chai')
 const chaiAsPromised = require("chai-as-promised");
 chai.use(chaiAsPromised)
 const expect = chai.expect
-const GATEWAY = 'https://gateway-stage.dccn.ankr.com'
-// If need, change your context
-
-
-
+GATEWAY = 'https://gateway-stage.dccn.ankr.com'
+// If need, change your domain
+setDomain = function (domain) {
+    GATEWAY = 'https://gateway' + domain + '.dccn.ankr.com'
+    console.log('Your domain changed to ' + GATEWAY)
+}
 
 // Set your account:
 testEmail = '',
