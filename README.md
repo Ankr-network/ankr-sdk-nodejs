@@ -28,27 +28,38 @@ npm install ankr-sdk-nodejs
 1. 
 2. 
 
+### Namespace
+1. `namespacelist( )`
+List all namespaces in your account.
+
+2. `namespacecreate(ns_name, ns_cpu_limit, ns_mem_limit, ns_storage_limit)`
+Create a namespace.
+
+3. `namespacedelete(ns_id)`
+delete a namespace by ns_id.
+
+4. `namespaceupdate(ns_id, cpu_u, mem_u, storage_u)`
+update a namespace by ns_id.
+
 ### App
 1. `applist( )`
-List apps in your account.
+List all apps in your account.
 
 2. `appcreate(app_name, chart_repo, chart_name, chart_ver, ns_id [, custom_values])`
 Create an application on a running namespace.
 
 3. `appcancel(app_id)`
-Cancel an application.
+Cancel an application by app_id.
 
 4. `apppurge(app_id)`
-Purge an application.
+Purge an application by app_id.
 
-5. `appupdate(app_id, app_name_update, chart_name_update, chart_repo_update, chart_ver_update)`
-Update an application.
+5. `appupdate(app_id, app_name_u, chart_name_u, chart_repo_u, chart_ver_u)`
+Update an application by app_id.
 
+6. `appdetail(app_id)`
+Show details of an application by app_id. 
 
-
-### Namespace
-1. 
-2. 
 
 ### User
 1. 

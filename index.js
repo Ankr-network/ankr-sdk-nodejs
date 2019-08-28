@@ -145,16 +145,20 @@ global.toTS = toTS
 
 // user
 
+//namespace
+namespacelist = api.namespaceList
+namespacecreate = api.namespaceCreate
+namespacedelete = api.namespaceDelete
+namespaceupdate = api.namespaceUpdate
+
 //app
 applist = api.appList
 appcreate = api.appCreate
 appcancel = api.appCancel
 apppurge = api.appPurge
 appupdate = api.appUpdate
-
-//namespace
-
-
+appdetail = api.appDetail
+namespacedelete = api.namespacedelete
 
 module.exports = {
     // config
@@ -163,16 +167,25 @@ module.exports = {
     
     // user
 
+    // namespace
+    namespacelist,
+    namespacecreate,
+    namespacedelete,
+    namespaceupdate,
+
+    
     // app
     applist,
     appcreate,
     appcancel,
     apppurge,
     appupdate,
+    appdetail,
+
+
+
+
     
-
-
-    // namespace
     
     
 }

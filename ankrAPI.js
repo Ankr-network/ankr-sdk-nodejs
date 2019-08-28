@@ -1,5 +1,40 @@
 // user
 
+
+// namespace
+namespaceList = async function () {
+    await authenticateWithTestAcct()
+    const nsList = await reqA('GET', '/namespace/list')
+    console.log(nsList)
+}
+
+namespaceCreate  = async function (ns_name, ns_cpu_limit, ns_mem_limit, ns_storage_limit) {
+    await authenticateWithTestAcct()
+    const namespace = await reqA('POST', '/namespace/create', {
+        ns_name: ns_name,
+        ns_cpu_limit: ns_cpu_limit,
+        ns_mem_limit: ns_mem_limit,
+        ns_storage_limit: ns_storage_limit
+    })
+    console.log(namespace)
+}
+
+namespaceDelete = async function (ns_id) {
+    await authenticateWithTestAcct()
+    path = '/namespace/delete/' + ns_id
+    await reqA('DELETE', path)
+}
+
+namespaceUpdate = async function (ns_id, cpu_u, mem_u, storage_u) {
+    await authenticateWithTestAcct()
+    await reqA('POST', '/namespace/update', {
+        ns_id: ns_id,
+        ns_cpu_limit: cpu_u,
+        ns_mem_limit: mem_u,
+        ns_storage_limit: storage_u
+    })
+}
+
 // app
 appList = async function () {
     await authenticateWithTestAcct()
@@ -34,24 +69,47 @@ appPurge = async function (app_id) {
     await reqA('DELETE', path_purge)
 }
 
-appUpdate = async function (app_id, app_name_update, chart_name_update, chart_repo_update, chart_ver_update) {
+appUpdate = async function (app_id, app_name_u, chart_name_u, chart_repo_u, chart_ver_u) {
+    await authenticateWithTestAcct()
     path = '/app/update/' + app_id
     await reqA('POST', path, {
-        app_name: app_name_update,
-        chart_name: chart_name_update,
-        chart_repo: chart_repo_update,
-        chart_ver: chart_ver_update
+        app_name: app_name_u,
+        chart_name: chart_name_u,
+        chart_repo: chart_repo_u,
+        chart_ver: chart_ver_u
     })
+}
+
+appDetail = async function (app_id) {
+    await authenticateWithTestAcct()
+    path = "/app/detail/" + app_id
+    const detail = await reqA('GET', path)
+    console.log(detail)
 }
 
 
 
+
 module.exports = {
+    
+    // namespace
+    namespaceList,
+    namespaceCreate,
+    namespaceDelete,
+    namespaceUpdate,
+
+
+
+
+
+    
     // app
     appList,
     appCreate,
     appCancel,
     appPurge,
     appUpdate,
+    appDetail,
+
 
 }
