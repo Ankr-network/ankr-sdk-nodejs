@@ -1,7 +1,7 @@
 # ankr-sdk-nodejs
 
 ## Introduction
-This is a tool to help users use Ankr's API more conveniently.
+This is a sdk tool that helps users use Ankr's APIs more conveniently.
 
 ## Installation
 ### Install npm

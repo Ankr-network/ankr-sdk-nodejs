@@ -161,19 +161,21 @@ chartdownload = api.chartDownload
 chartdelete = api.chartDelete
 chartupload = api.chartUpload
 
-//namespace
+// namespace
 namespacelist = api.namespaceList
 namespacecreate = api.namespaceCreate
 namespacedelete = api.namespaceDelete
 namespaceupdate = api.namespaceUpdate
 
-//app
+// app
 applist = api.appList
 appcreate = api.appCreate
 appcancel = api.appCancel
 apppurge = api.appPurge
 appupdate = api.appUpdate
 appdetail = api.appDetail
+
+// test
 
 
 
@@ -195,7 +197,7 @@ module.exports = {
     chartdownload,
     chartdelete,
     chartupload,
-    
+
 
 
 

@@ -27,6 +27,7 @@ chartList = async function (repo = 'stable') {
     await authenticateUserAcct()
     const list = await reqA('GET', '/chart/list', {chart_repo: repo})
     console.log(list)
+    return list
 } 
 
 chartDetail = async function (repo, name, ver) {
@@ -34,6 +35,7 @@ chartDetail = async function (repo, name, ver) {
     path = '/chart/detail/' + repo + '/' + name + '/' + ver
     const chart_detail1 = await reqA('GET', path)
     console.log(chart_detail1)
+    return chart_detail1
 }
 
 chartDownload = async function (repo, name, ver) {
@@ -41,6 +43,7 @@ chartDownload = async function (repo, name, ver) {
     path = '/chart/download/' + repo + '/' + name + '/' + ver
     const file = await reqA('GET', path)
     console.log(file)
+    return file
 }
 
 chartDelete = async function (name, ver) {
@@ -63,18 +66,21 @@ dcList = async function () {
     await authenticateUserAcct()
     const list = await reqA('GET', '/dc/list')
     console.log(list)
+    return list
 }
 
 dcNetworkInfo = async function () {
     await authenticateUserAcct()
     const networkInfo = await reqA('GET', '/dc/networkinfo')
     console.log(networkInfo)
+    return networkInfo
 }
 
 myDc = async function () {
     await authenticateUserAcct()
     const cluster = await reqA('GET', '/dc/mydc')
     console.log(cluster)
+    return cluster
 }
 
 dcReset = async function (reset_name) {
@@ -82,6 +88,7 @@ dcReset = async function (reset_name) {
     const cluster = await reqA('POST', '/dc/reset' , {
     cluster_name: reset_name})
     console.log(cluster)
+    return cluster
 }
 
 // namespace
@@ -89,6 +96,7 @@ namespaceList = async function () {
     await authenticateUserAcct()
     const nsList = await reqA('GET', '/namespace/list')
     console.log(nsList)
+    return nsList
 }
 
 namespaceCreate  = async function (ns_name, ns_cpu_limit, ns_mem_limit, ns_storage_limit) {
@@ -100,6 +108,7 @@ namespaceCreate  = async function (ns_name, ns_cpu_limit, ns_mem_limit, ns_stora
         ns_storage_limit: ns_storage_limit
     })
     console.log(namespace)
+    return namespace
 }
 
 namespaceDelete = async function (ns_id) {
@@ -123,6 +132,7 @@ appList = async function () {
     await authenticateUserAcct()
     const appList = await reqA('GET', '/app/list')
     console.log(appList)
+    return appList
 }
 
 appCreate = async function (app_name, chart_repo, chart_name, chart_ver, ns_id, custom_values = []) {
@@ -138,6 +148,8 @@ appCreate = async function (app_name, chart_repo, chart_name, chart_ver, ns_id, 
         custom_values: custom_values
         })
     console.log(app)
+    return app
+    
 }
 
 appCancel = async function (app_id) {
@@ -168,10 +180,8 @@ appDetail = async function (app_id) {
     path = "/app/detail/" + app_id
     const detail = await reqA('GET', path)
     console.log(detail)
+    return detail
 }
-
-
-
 
 module.exports = {
     //user
@@ -186,16 +196,11 @@ module.exports = {
     chartDelete,
     chartUpload,
 
-
-
-
-
     // namespace
     namespaceList,
     namespaceCreate,
     namespaceDelete,
     namespaceUpdate,
-
 
     // dc
     dcList,
@@ -203,8 +208,6 @@ module.exports = {
     myDc,
     dcReset,
 
-
-    
     // app
     appList,
     appCreate,
@@ -212,6 +215,4 @@ module.exports = {
     appPurge,
     appUpdate,
     appDetail,
-
-
 }
